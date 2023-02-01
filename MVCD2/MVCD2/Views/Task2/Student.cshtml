@@ -1,0 +1,41 @@
+﻿@*@model MVCD2.Models.Student*@
+@{
+    ViewBag.Title = "Student";
+}
+
+<h2>Student Task1 Day2</h2>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Major</th>
+        <th>Faculity</th>
+
+    </tr>
+    @foreach (var xx in Model)
+    {
+        
+        <tr>
+            <td>
+                @if (xx.id > 2)
+                {
+                    <h5>@xx.id</h5>
+                }
+                else
+                {
+                    <h5> @xx.id</h5>
+                }
+
+            </td>
+            <td>@xx.name</td>
+            <td>@xx.major</td>
+            <td>@xx.Faculity</td>
+
+        </tr>
+    }
+
+
+</table>
+
