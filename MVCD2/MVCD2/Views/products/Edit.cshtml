@@ -17,37 +17,66 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" for="Name">Product</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" type="text" value="Heater" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
         </div>
+        @*@Html.LabelFor(model => model.Name, "Product", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>*@
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.catId, "catId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("catId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.catId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.catId, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("catId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.catId, "", new { @class = "text-danger" })
+        </div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UnitPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
-            </div>
+        <label class="control-label col-md-2" for="catId">Category</label>
+        <div class="col-md-10">
+            <select class="form-control" id="catId" name="catId">
+                <option value="5">platters</option>
+                <option value="6">cookers	</option>
+                <option selected="selected" value="7">Kitchen electrical</option>
+                <option value="8">cups	</option>
+                <option value="10">discount</option>
+                <option value="16">Unique Tools</option>
+            </select>
+            <span class="field-validation-valid text-danger" data-valmsg-for="catId" data-valmsg-replace="true"></span>
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Stock, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Stock, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.UnitPrice,"Price",htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
+        </div>*@
+        <label class="control-label col-md-2" for="UnitPrice">Price</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" data-val="true" data-val-number="The field UnitPrice must be a number." data-val-required="The UnitPrice field is required." id="UnitPrice" name="UnitPrice" type="text" value="55" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="UnitPrice" data-valmsg-replace="true"></span>
         </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-2" for="Stock">Stock</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" data-val="true" data-val-number="The field Stock must be a number." data-val-required="The Stock field is required." id="Stock" name="Stock" type="number" value="6" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="Stock" data-valmsg-replace="true"></span>
+        </div>
+        @*@Html.LabelFor(model => model.Stock,"Stock" ,htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Stock, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Stock, "", new { @class = "text-danger" })
+        </div>*@
+    </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -58,7 +87,9 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Back to List", "Index")*@
+    <a href="/products">Back to List</a>
+
 </div>
 
 @section Scripts {

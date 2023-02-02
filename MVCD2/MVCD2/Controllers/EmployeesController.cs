@@ -20,6 +20,11 @@ namespace MVCD2.Controllers
             return View(db.Employees.ToList());
         }
 
+        public ActionResult Annotaion()
+        {
+            return View();
+        }
+
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
         {

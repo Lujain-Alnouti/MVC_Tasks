@@ -114,7 +114,9 @@ namespace MVCD2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            
             product product = db.products.Find(id);
+            ViewBag.pp = product;
             db.products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");

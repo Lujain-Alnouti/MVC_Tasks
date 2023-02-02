@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Helper";
+}
+
+<h2>Helper</h2>
+@Html.Label("Name", "Employee Name ")
+@Html.TextBox("Name", "", new { @class = "form-control" })
+
+@Html.Label("Pass", "Password")
+@Html.Password("Pass", "", new { @class = "form-control" })
+
+@Html.Label("email", "Email")
+@Html.TextBox("email", "", new { @class = "form-control" })
+
+@Html.Label("desc", "Description")
+@Html.TextArea("desc", "", new { @class = "form-control" })
+
+
+@Html.Label("Gender", "Gender")
+
+@Html.RadioButton("Gender", "Male", false, new { id = "male" }) Male
+
+@Html.RadioButton("Gender", "Female", false, new { id = "female" }) Female

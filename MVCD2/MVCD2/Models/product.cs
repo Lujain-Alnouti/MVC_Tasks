@@ -11,15 +11,21 @@ namespace MVCD2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class product
     {
+        [Required]
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public Nullable<int> catId { get; set; }
+        [Required]
         public Nullable<double> UnitPrice { get; set; }
+        [Required]
         public Nullable<int> Stock { get; set; }
-    
+        [Required]
         public virtual category category { get; set; }
     }
 }

@@ -5,17 +5,18 @@
 }
 
 <h2>Index</h2>
+<h2>Student Task1 Day2 Part2</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table table-striped">
     <tr>
-        <th>Product        </th>
-        <th> Price        </th>
-        <th># Stock        </th>
-        <th>Category        </th>
-        <th>Description      </th>
+        <th>Product</th>
+        <th>Price</th>
+        <th># Stock</th>
+        <th>Category</th>
+        <th>Description</th>
 
         <th></th>
     </tr>
@@ -24,24 +25,37 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                <span> @item.Name</span>
+                @*@Html.DisplayFor(modelItem => item.Name)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UnitPrice)
+                <span> @item.UnitPrice</span>
+
+                @*@Html.DisplayFor(modelItem => item.UnitPrice)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Stock)
+                <span> @item.Stock</span>
+
+                @*@Html.DisplayFor(modelItem => item.Stock)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.category.Name)
+                <span> @item.category.Name</span>
+
+                @*@Html.DisplayFor(modelItem => item.category.Name)*@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.category.Description)
+                @*@Html.DisplayFor(modelItem => item.category.Description)*@
+                <span>@item.category.Description</span>
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-success" }) 
-                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-warning" }) 
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.ID })*@
+                <a href="Edit/@item.ID" class="btn btn-success">Update</a>
+                <a href="Details/@item.ID" class="btn btn-warning">Details</a>
+                <a href="Delete/@item.ID" class="btn btn-danger">Delete</a>
+
+                @*@Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })*@
+            
             </td>
         </tr>
     }
