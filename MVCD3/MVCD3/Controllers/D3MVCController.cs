@@ -19,7 +19,11 @@ namespace MVCD3.Controllers
         {
             return View(db.D3MVC.ToList());
         }
-
+        public ActionResult Search(string sear)
+        {
+            return View("Index", db.D3MVC.Where(a => a.First_Name.Contains(sear) || sear == null).ToList());
+        }
+        
         // GET: D3MVC/Details/5
         public ActionResult Details(int? id)
         {

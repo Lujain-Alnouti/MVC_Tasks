@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="54f78505377b4fe4bd588cd8d0eaf55b" Name="Diagram1">
+        <EntityTypeShape EntityType="CleaningServicesModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleaningServicesModel.AspNetRole" Width="1.5" PointX="7.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleaningServicesModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleaningServicesModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleaningServicesModel.AspNetUser" Width="1.5" PointX="10" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleaningServicesModel.Booking" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleaningServicesModel.City" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleaningServicesModel.Employee" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleaningServicesModel.Maping" Width="1.5" PointX="2.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleaningServicesModel.Rating" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CleaningServicesModel.Service" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="CleaningServicesModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CleaningServicesModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="CleaningServicesModel.FK__Bookings__CityID__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="CleaningServicesModel.FK__Ratings__Booking__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="CleaningServicesModel.FK_Bookings_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="CleaningServicesModel.FK_Services_Bookings" ManuallyRouted="false" />
+        <AssociationConnector Association="CleaningServicesModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="CleaningServicesModel.Intermediates" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
