@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CustomerMVC">
+    <Key>
+      <PropertyRef Name="Customer_ID" />
+    </Key>
+    <Property Name="Customer_ID" Type="int" Nullable="false" />
+    <Property Name="First_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="50" />
+    <Property Name="E_mail" Type="varchar(max)" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Job_Title" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="bit" />
+  </EntityType>
+  <EntityType Name="OrderDa">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="OrderData" Type="date" />
+  </EntityType>
+  <Association Name="FK_OrderDa_CustomerMVC">
+    <End Role="CustomerMVC" Type="Self.CustomerMVC" Multiplicity="0..1" />
+    <End Role="OrderDa" Type="Self.OrderDa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerMVC">
+        <PropertyRef Name="Customer_ID" />
+      </Principal>
+      <Dependent Role="OrderDa">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="CustomerMVC" EntityType="Self.CustomerMVC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDa" EntityType="Self.OrderDa" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_OrderDa_CustomerMVC" Association="Self.FK_OrderDa_CustomerMVC">
+      <End Role="CustomerMVC" EntitySet="CustomerMVC" />
+      <End Role="OrderDa" EntitySet="OrderDa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
