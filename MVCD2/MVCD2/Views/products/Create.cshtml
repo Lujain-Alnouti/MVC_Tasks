@@ -26,7 +26,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.catId, "catId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("catId", null, htmlAttributes: new { @class = "form-control" })
+                <select>
+                    <option value="">--Select Country--</option>
+                    @foreach (var item in (List<SelectListItem>))
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+                @*@Html.DropDownList("catId", null, htmlAttributes: new { @class = "form-control" })*@
                 @Html.ValidationMessageFor(model => model.catId, "", new { @class = "text-danger" })
             </div>
         </div>

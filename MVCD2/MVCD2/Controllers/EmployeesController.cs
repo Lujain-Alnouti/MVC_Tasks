@@ -43,6 +43,8 @@ namespace MVCD2.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
+            ViewBag.Cate = db..Select(a => a.).ToList();
+
             return View();
         }
 

@@ -64,7 +64,15 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Gender)
+
+            @if (Model.Gender == true)
+            {
+                <span>Female</span>
+            }
+            else
+            {
+                <span>Male</span>
+            }
         </dd>
 
     </dl>
