@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="64dae76f2ddd425384ce583834993920" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="1.5" />
+        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="3" PointY="3.25" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="3" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.AspNetUserRole" Width="1.5" PointX="6" PointY="4.5" />
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="Model.categories1" Width="1.5" PointX="10.75" PointY="4.5" />
+        <EntityTypeShape EntityType="Model.category" Width="1.5" PointX="0.75" PointY="11.875" />
+        <EntityTypeShape EntityType="Model.CustomerMVC" Width="1.5" PointX="5.75" PointY="11.75" />
+        <EntityTypeShape EntityType="Model.D3MVC" Width="1.5" PointX="10.75" PointY="11.5" />
+        <EntityTypeShape EntityType="Model.order1" Width="1.5" PointX="8.75" PointY="1.625" />
+        <EntityTypeShape EntityType="Model.OrderDa" Width="1.5" PointX="8" PointY="12.125" />
+        <EntityTypeShape EntityType="Model.product" Width="1.5" PointX="3" PointY="11.625" />
+        <EntityTypeShape EntityType="Model.RolLogin" Width="1.5" PointX="5.75" PointY="8.25" />
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="12.75" PointY="4.5" />
+        <EntityTypeShape EntityType="Model.Table_2" Width="1.5" PointX="2.75" PointY="6.5" />
+        <EntityTypeShape EntityType="Model.userReg" Width="1.5" PointX="8" PointY="7.75" />
+        <EntityTypeShape EntityType="Model.cart" Width="1.5" PointX="12.75" PointY="7.5" />
+        <EntityTypeShape EntityType="Model.comment" Width="1.5" PointX="10.25" PointY="8.125" />
+        <EntityTypeShape EntityType="Model.orderProduct" Width="1.5" PointX="11" PointY="1.875" />
+        <EntityTypeShape EntityType="Model.user1" Width="1.5" PointX="12.75" PointY="10.5" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Model.FK_product_category" />
+        <AssociationConnector Association="Model.FK_OrderDa_CustomerMVC" />
+        <AssociationConnector Association="Model.FK_orderProduct_order" />
+        <AssociationConnector Association="Model.FK_userReg_RolLogin" />
+        <AssociationConnector Association="Model.FK_comments_userReg" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

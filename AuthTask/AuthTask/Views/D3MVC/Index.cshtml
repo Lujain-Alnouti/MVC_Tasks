@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AuthTask.Models.D3MVC>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+<style>
+    .iconcc {
+        text-decoration: none;
+    }
+</style>
+<script src="https://kit.fontawesome.com/a8b56cb52b.js" crossorigin="anonymous"></script>
+
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Employees</h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-sm-4 mb-4">
+                    <!-- Portfolio item 1-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+
+                            <img class="img-fluid" src="~/Images/@item.Image" height="200" alt="..." />
+                        </a>
+                        @*<div>
+                            &nbsp;
+                            @Html.ActionLink("✎", "Edit", new { id = item.ID }, new { @class = "pos iconcc" }) <span style="color:ghostwhite">|</span>
+                            @Html.ActionLink("⚠", "Details", new { id = item.ID }, new { @class = "pos iconcc" }) <span style="color:ghostwhite">|</span>
+                            @Html.ActionLink("✘", "Delete", new { id = item.ID }, new { @class = "deletA iconcc" })
+                            <a href="/D3MVC1/Edit/@item.ID"><i class="fa-regular fa-pen-to-square"></i></a>
+                        </div>*@
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">@item.First_Name @item.Last_Name</div>
+                            <div class="portfolio-caption-subheading text-muted"> <a download href="~/CVs/@item.CV">CVs</a></div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
