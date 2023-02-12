@@ -1,0 +1,42 @@
+﻿@model ErrorHandle.Models.CorStd
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CorStd</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.vv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.CName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.CName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MVCStudent.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MVCStudent.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

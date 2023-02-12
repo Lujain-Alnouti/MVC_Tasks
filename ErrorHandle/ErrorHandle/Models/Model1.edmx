@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CorStd">
+          <Key>
+            <PropertyRef Name="CorID" />
+            <PropertyRef Name="StdID" />
+          </Key>
+          <Property Name="CorID" Type="int" Nullable="false" />
+          <Property Name="StdID" Type="int" Nullable="false" />
+          <Property Name="vv" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MVCStudent">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_CorStd_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="CorStd" Type="Self.CorStd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="CorStd">
+              <PropertyRef Name="CorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CorStd_MVCStudent">
+          <End Role="MVCStudent" Type="Self.MVCStudent" Multiplicity="1" />
+          <End Role="CorStd" Type="Self.CorStd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MVCStudent">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="CorStd">
+              <PropertyRef Name="CorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="CorStd" EntityType="Self.CorStd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MVCStudent" EntityType="Self.MVCStudent" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CorStd_Course" Association="Self.FK_CorStd_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="CorStd" EntitySet="CorStd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CorStd_MVCStudent" Association="Self.FK_CorStd_MVCStudent">
+            <End Role="MVCStudent" EntitySet="MVCStudent" />
+            <End Role="CorStd" EntitySet="CorStd" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CorStds" EntityType="Model.CorStd" />
+          <EntitySet Name="Courses" EntityType="Model.Course" />
+          <EntitySet Name="MVCStudents" EntityType="Model.MVCStudent" />
+          <AssociationSet Name="FK_CorStd_Course" Association="Model.FK_CorStd_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="CorStd" EntitySet="CorStds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CorStd_MVCStudent" Association="Model.FK_CorStd_MVCStudent">
+            <End Role="MVCStudent" EntitySet="MVCStudents" />
+            <End Role="CorStd" EntitySet="CorStds" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CorStd">
+          <Key>
+            <PropertyRef Name="CorID" />
+            <PropertyRef Name="StdID" />
+          </Key>
+          <Property Name="CorID" Type="Int32" Nullable="false" />
+          <Property Name="StdID" Type="Int32" Nullable="false" />
+          <Property Name="vv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Course" Relationship="Model.FK_CorStd_Course" FromRole="CorStd" ToRole="Course" />
+          <NavigationProperty Name="MVCStudent" Relationship="Model.FK_CorStd_MVCStudent" FromRole="CorStd" ToRole="MVCStudent" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CorStds" Relationship="Model.FK_CorStd_Course" FromRole="Course" ToRole="CorStd" />
+        </EntityType>
+        <EntityType Name="MVCStudent">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CorStds" Relationship="Model.FK_CorStd_MVCStudent" FromRole="MVCStudent" ToRole="CorStd" />
+        </EntityType>
+        <Association Name="FK_CorStd_Course">
+          <End Type="Model.Course" Role="Course" Multiplicity="1" />
+          <End Type="Model.CorStd" Role="CorStd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="CorStd">
+              <PropertyRef Name="CorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CorStd_MVCStudent">
+          <End Type="Model.MVCStudent" Role="MVCStudent" Multiplicity="1" />
+          <End Type="Model.CorStd" Role="CorStd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MVCStudent">
+              <PropertyRef Name="StudentID" />
+            </Principal>
+            <Dependent Role="CorStd">
+              <PropertyRef Name="CorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="CorStds">
+            <EntityTypeMapping TypeName="Model.CorStd">
+              <MappingFragment StoreEntitySet="CorStd">
+                <ScalarProperty Name="vv" ColumnName="vv" />
+                <ScalarProperty Name="StdID" ColumnName="StdID" />
+                <ScalarProperty Name="CorID" ColumnName="CorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="Model.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="CName" ColumnName="CName" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MVCStudents">
+            <EntityTypeMapping TypeName="Model.MVCStudent">
+              <MappingFragment StoreEntitySet="MVCStudent">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
