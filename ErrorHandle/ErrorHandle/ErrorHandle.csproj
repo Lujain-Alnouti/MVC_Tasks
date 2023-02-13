@@ -301,6 +301,7 @@
     <Content Include="Views\CorStds\Details.cshtml" />
     <Content Include="Views\CorStds\Edit.cshtml" />
     <Content Include="Views\CorStds\Index.cshtml" />
+    <Content Include="Views\Shared\Error2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

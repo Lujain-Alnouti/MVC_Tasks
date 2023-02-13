@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="APIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Facctories">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FactoryName" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="300" />
+    <Property Name="image" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Majors">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FactoryID" Type="int" />
+    <Property Name="Major" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Majors_Majors">
+    <End Role="Facctories" Type="Self.Facctories" Multiplicity="0..1" />
+    <End Role="Majors" Type="Self.Majors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facctories">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Majors">
+        <PropertyRef Name="FactoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="APIModelStoreContainer">
+    <EntitySet Name="Facctories" EntityType="Self.Facctories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Majors" EntityType="Self.Majors" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Majors_Majors" Association="Self.FK_Majors_Majors">
+      <End Role="Facctories" EntitySet="Facctories" />
+      <End Role="Majors" EntitySet="Majors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

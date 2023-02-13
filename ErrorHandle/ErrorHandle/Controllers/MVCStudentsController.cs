@@ -10,7 +10,7 @@ using ErrorHandle.Models;
 
 namespace ErrorHandle.Controllers
 {
-    [HandleError(View = "Error")]
+    [HandleError(View = "Error2")]
 
     public class MVCStudentsController : Controller
     {

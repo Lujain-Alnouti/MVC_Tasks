@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CorStd">
+    <Key>
+      <PropertyRef Name="CorID" />
+      <PropertyRef Name="StdID" />
+    </Key>
+    <Property Name="CorID" Type="Int32" Nullable="false" />
+    <Property Name="StdID" Type="Int32" Nullable="false" />
+    <Property Name="vv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Course" Relationship="Self.FK_CorStd_Course" FromRole="CorStd" ToRole="Course" />
+    <NavigationProperty Name="MVCStudent" Relationship="Self.FK_CorStd_MVCStudent" FromRole="CorStd" ToRole="MVCStudent" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseID" />
+    </Key>
+    <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CorStds" Relationship="Self.FK_CorStd_Course" FromRole="Course" ToRole="CorStd" />
+  </EntityType>
+  <EntityType Name="MVCStudent">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CorStds" Relationship="Self.FK_CorStd_MVCStudent" FromRole="MVCStudent" ToRole="CorStd" />
+  </EntityType>
+  <Association Name="FK_CorStd_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="CorStd" Type="Self.CorStd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseID" />
+      </Principal>
+      <Dependent Role="CorStd">
+        <PropertyRef Name="CorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CorStd_MVCStudent">
+    <End Role="MVCStudent" Type="Self.MVCStudent" Multiplicity="1" />
+    <End Role="CorStd" Type="Self.CorStd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MVCStudent">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="CorStd">
+        <PropertyRef Name="CorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CorStds" EntityType="Self.CorStd" />
+    <EntitySet Name="Courses" EntityType="Self.Course" />
+    <EntitySet Name="MVCStudents" EntityType="Self.MVCStudent" />
+    <AssociationSet Name="FK_CorStd_Course" Association="Self.FK_CorStd_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="CorStd" EntitySet="CorStds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CorStd_MVCStudent" Association="Self.FK_CorStd_MVCStudent">
+      <End Role="MVCStudent" EntitySet="MVCStudents" />
+      <End Role="CorStd" EntitySet="CorStds" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

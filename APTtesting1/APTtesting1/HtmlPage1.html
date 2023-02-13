@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Lattes - Onepage Multipurpose Bootstrap HTML</title>
+    <!-- Bootstrap core CSS -->
+    <link href="TemplateCSS/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="TemplateCSS/css/owl.carousel.css" rel="stylesheet">
+    <link href="TemplateCSS/css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="TemplateCSS/css/style.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="TemplateCSS/js/ie-emulation-modes-warning.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="tb">
+
+
+
+        </div>
+    </div>
+    <!--<tbody id="tb"></tbody>
+    </table>-->
+    <script>
+        async function read() {
+            try {
+                const api = "https://192.168.1.226/api/Facctories";
+                const res = await fetch(api);
+                const data = await res.json();
+                console.log(data);
+                readdata(data);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+        function readdata(data) {
+            var row = "<div class='row'>";
+            for (let index = 0; index < data.length; index++) {
+                //document.getElementById('tb').innerHTML +=
+                //    "<tr><td>" + data[index].ID + "</td><td>" + data[index].FactoryName +
+
+                //    "</td><td>" + data[index].Description +
+
+                //    "</td><td>" + data[index].image + "</td><td><a href=/Majors/Index1/" + data[index].ID + ">Details</a></td></tr>"
+
+                //var b = " <div class='col-md-4' style='display:inline-block'><div class='ot-portfolio-item'> <figure class='effect-bubba' > <img src=" + data[index].image + " alt='img02' class='img-responsive'/> <figcaption>" +
+                //    "<h2>" + data[index].FactoryName + "</h2><p>" + data[index].Description + "</p>" +
+                //    "<a href=/Majors/Index1/" + data[index].ID + " data-toggle='modal' data-target='#Modal-1'>View more</a></figcaption></figure></div></div>"
+
+
+                document.getElementById('tb').innerHTML +=
+                    " <div class='col-md-6 col-lg-4' style='display:inline-block'><div class='ot-portfolio-item'> <figure class='effect-bubba' > <img src='../TemplateCSS/" + data[index].image +"' alt='img02' class='img-responsive'/> <figcaption>" +
+                    "<h2>" + data[index].FactoryName + "</h2><p>" + data[index].Description + "</p><br/>" +
+                    "<a href=/Majors/Index1/" + data[index].ID + " data-toggle='modal' data-target='#Modal-1' style='color:red;'>View more</a></figcaption></figure></div></div>"
+
+            }
+            var dd = "</div>"
+
+        }
+        read();
+    </script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="TemplateCSS/js/bootstrap.min.js"></script>
+    <script src="TemplateCSS/js/owl.carousel.min.js"></script>
+    <script src="TemplateCSS/js/cbpAnimatedHeader.js"></script>
+    <script src="TemplateCSS/js/theme-scripts.js"></script>-->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!--<script src="TemplateCSS/js/ie10-viewport-bug-workaround.js"></script>-->
+</body>
+</html>
+
+

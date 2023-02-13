@@ -1,0 +1,45 @@
+﻿<div class="jumbotron">
+    @*<h1>ASP.NET</h1>
+            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
+            <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Getting started</h2>
+                <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
+                a broad range of clients, including browsers and mobile devices. ASP.NET Web API
+                is an ideal platform for building RESTful applications on the .NET Framework.</p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Get more libraries</h2>
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Web Hosting</h2>
+                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+            </div>*@
+    <meta charset="utf-8" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Lattes - Onepage Multipurpose Bootstrap HTML</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/TemplateCSS/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="TemplateCSS/css/owl.carousel.css" rel="stylesheet">
+    <link href="~/TemplateCSS/css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="~/TemplateCSS/css/style.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="~/TemplateCSS/js/ie-emulation-modes-warning.js"></script>
+    @Html.Raw(File.ReadAllText(Server.MapPath("~/TaskAPI.html")))
+</div>

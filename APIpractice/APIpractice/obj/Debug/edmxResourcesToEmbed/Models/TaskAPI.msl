@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="APIModelStoreContainer" CdmEntityContainer="APIEntities">
+    <EntitySetMapping Name="Facctories">
+      <EntityTypeMapping TypeName="APIModel.Facctory">
+        <MappingFragment StoreEntitySet="Facctories">
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FactoryName" ColumnName="FactoryName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Majors">
+      <EntityTypeMapping TypeName="APIModel.Major">
+        <MappingFragment StoreEntitySet="Majors">
+          <ScalarProperty Name="Major1" ColumnName="Major" />
+          <ScalarProperty Name="FactoryID" ColumnName="FactoryID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
