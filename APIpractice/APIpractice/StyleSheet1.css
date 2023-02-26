@@ -1,0 +1,6 @@
+﻿@media (min-width: 1200px)  {
+    .col-lg-4 {
+        width: 25% !important;
+        float:none !important;
+    }
+}

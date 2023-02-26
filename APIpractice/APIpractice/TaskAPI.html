@@ -21,10 +21,31 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="TemplateCSS/js/ie-emulation-modes-warning.js"></script>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+
+    <style>
+        .ff {
+            width: 33% !important;
+            float: none !important;
+            justify-content:center;
+        }
+        .hh{
+            float:none !important;
+        }
+        .col-lg-4 {
+            float: none !important;
+        }
+        @media (min-width: 1200px) {
+            .col-lg-4 {
+                width: 25% !important;
+                float: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="row" id="tb">
+        <div class=""  id="tb">
 
 
 
@@ -48,22 +69,12 @@
         function readdata(data) {
             var row = "<div class='row'>";
             for (let index = 0; index < data.length; index++) {
-                //document.getElementById('tb').innerHTML +=
-                //    "<tr><td>" + data[index].ID + "</td><td>" + data[index].FactoryName +
-
-                //    "</td><td>" + data[index].Description +
-
-                //    "</td><td>" + data[index].image + "</td><td><a href=/Majors/Index1/" + data[index].ID + ">Details</a></td></tr>"
               
-                //var b = " <div class='col-md-4' style='display:inline-block'><div class='ot-portfolio-item'> <figure class='effect-bubba' > <img src=" + data[index].image + " alt='img02' class='img-responsive'/> <figcaption>" +
-                //    "<h2>" + data[index].FactoryName + "</h2><p>" + data[index].Description + "</p>" +
-                //    "<a href=/Majors/Index1/" + data[index].ID + " data-toggle='modal' data-target='#Modal-1'>View more</a></figcaption></figure></div></div>"
-
                
                 document.getElementById('tb').innerHTML +=
-                    " <div class='col-md-6 col-lg-4' style='display:inline-block'><div class='ot-portfolio-item'> <figure class='effect-bubba' > <img src='../TemplateCSS/" + data[index].image +"' alt='img02' class='img-responsive'/> <figcaption>" +
+                    " <div style='display:inline-block;' class='ff'><div class='ot-portfolio-item '> <figure class='effect-bubba' > <img src='../TemplateCSS/" + data[index].image +"' alt='img02' class='img-responsive'/> <figcaption>" +
                     "<h2>" + data[index].FactoryName + "</h2><p>" + data[index].Description + "</p><br/>" +
-                    "<a href=/Majors/Index1/" + data[index].ID + " data-toggle='modal' data-target='#Modal-1' style='color:red;'>View more</a></figcaption></figure></div></div>"
+                    "<a href=/Majors/Index1/"+ data[index].ID+" data-toggle='modal' data-target='#Modal-1' style='color:red;'>View more</a></figcaption></figure></div></div>"
 
             }
             var dd = "</div>"

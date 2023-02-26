@@ -1,0 +1,81 @@
+﻿@model IEnumerable<cccccccccccccc011.Models.Clinic>
+
+@{
+    ViewData["Title"] = "HomePage";
+}
+
+@*<h1>HomePage</h1>
+*@
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicImage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicName)
+            </td>
+            <td>*@
+                    @*<img src="../wwwroot/IMG/@item.ClinicImage" width="150" height="150">*@
+                @*@Html.DisplayFor(modelItem => item.ClinicImage)*@
+                </td>
+           @* <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>*@
+      @*  </tr>
+}
+    </tbody>
+</table>
+*@
+
+
+
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Clinics</h2>
+            <h3 class="section-subheading text-muted"><hr /></h3>
+        </div>
+        <div class="row">
+            @foreach(var item in Model){
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 1-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                            <img class="img-fluid"  src="~/img/@item.ClinicImage" />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">@item.ClinicName</div>
+@*                            <a href="/Doctors/Doo?id=@item.Id">Home</a>
+                       
+*@
+                            <a asp-controller="Doctors2" asp-action="Doo" asp-route-id="@item.Id">Doctors</a>
+</div>
+                </div>
+                </div>
+            }
+          
+           
+          
+           
+         
+        </div>
+    </div>
+</section>

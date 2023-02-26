@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="tb">
+
+    </div>
+    <script>
+        async function read() {
+            try {
+                const api = "https://localhost:44318/api/MVCStudents";
+                const res = await fetch(api);
+                const data = await res.json();
+                console.log(data);
+                readdata(data);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+        function readdata(data) {
+         
+            for (let index = 0; index < data.length; index++) {
+
+
+                document.getElementById('tb').innerHTML += data[index].Email+"<br/>";
+                  
+            }
+          
+
+        }
+        read();
+    </script>
+</body>
+</html>
